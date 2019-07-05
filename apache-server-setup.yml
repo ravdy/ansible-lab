@@ -2,10 +2,13 @@
 - hosts: webserers
   become: treu
   tasks:
-    - name: installing apache web server
+    - name: installing web components
       apt: name={{item}} state=present update_cache=yes
-    with_items:
-      - apache2
-      - libapache2
-      - python-pip
-      - python-virtualenv
+      with_items:
+        - apache2
+        - libapache2
+        - python-pip
+        - python-virtualenv
+
+    - name: starting apache services 
+      service: name=apache2 state=started enabled=yes
