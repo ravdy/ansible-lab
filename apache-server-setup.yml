@@ -1,0 +1,15 @@
+---
+- hosts: webserers
+  become: treu
+  tasks:
+    - name: installing apache web server
+      apt: name=apache2 state=present update_cache=yes
+
+    - name: installing libapache2 
+      apt: name=libapache2-mod-wsgi state=present update_cache=yes
+
+    - name: installing python-pip
+      apt: name=python-pip state=present update_cache=yes
+    
+    - name: installing python-virtualenv
+      apt: name=python-virtualenv state=present update_cache=yes
