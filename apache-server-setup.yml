@@ -1,6 +1,6 @@
 ---
 - hosts: webserers
-  become: treu
+  become: true
   tasks:
     - name: installing web components
       apt: name={{item}} state=present update_cache=yes
